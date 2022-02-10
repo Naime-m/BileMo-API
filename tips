@@ -1,1 +1,5 @@
-composer create-project symfony/skeleton:"^5.4.*" apicomposer require symfony/maker-bundle --dev
+composer create-project symfony/skeleton:"^5.4.*" api
+
+composer require symfony/maker-bundle --dev
+
+php -S localhost:8000 -t public/
