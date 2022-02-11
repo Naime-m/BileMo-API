@@ -9,8 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=CustomerRepository::class)
  * @ApiResource (
- * collectionOperations={"post"},
- * itemOperations={"delete"})
+ * collectionOperations={"post"={"security"="is_granted('ROLE_USER')"},
+ * "get"={"security"="is_granted('ROLE_USER')"}},
+ * itemOperations={"delete"={"security"="is_granted('ROLE_USER')"},
+ * "get"={"security"="is_granted('ROLE_USER')"}})
  */
 class Customer
 {

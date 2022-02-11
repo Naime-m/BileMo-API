@@ -9,8 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass=ProductRepository::class)
  * @ApiResource (
- * collectionOperations={"get"},
- * itemOperations={"get"})
+ * collectionOperations={"get"={"security"="is_granted('ROLE_USER')"}},
+ * itemOperations={"get"={"security"="is_granted('ROLE_USER')"}})
  */
 class Product
 {
