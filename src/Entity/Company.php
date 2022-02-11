@@ -39,6 +39,7 @@ class Company implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity=Customer::class, mappedBy="company")
+     * @Groups("user:read")
      */
     private $customers;
 
