@@ -44,7 +44,7 @@ php -S localhost:8000 -t public/
 
 # 6 - ACCEDER A L'API
 
-3) Il ne restera plus qu'à accéder à l'api à l'adresse suivante :
+Il ne restera plus qu'à accéder à l'api à l'adresse suivante :
 
 http://localhost:8000/api
 
