@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
- * @ApiResource (collectionOperations={"post"={"security"="is_granted('ROLE_USER')"}},
+ * @ApiResource (collectionOperations={"post"},
  * itemOperations={"get"={"security"="is_granted('ROLE_USER')"}},
  *     normalizationContext={"groups"={"user:read"}},
  *     denormalizationContext={"groups"={"user:write"}}
