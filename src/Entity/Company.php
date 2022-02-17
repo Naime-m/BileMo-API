@@ -2,16 +2,16 @@
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use App\Repository\CompanyRepository;
+use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
-use Symfony\Component\Serializer\Annotation\SerializedName;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\SerializedName;
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
@@ -31,7 +31,6 @@ class Company implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      * @Assert\Type("integer")
-     * @ApiProperty(identifier=true)
      * @Groups("user:read")
      */
     private $id;
