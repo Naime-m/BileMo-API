@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CompanyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -10,11 +11,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\SerializedName;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=CompanyRepository::class)
  * @ApiResource (collectionOperations={"post"},
- * itemOperations={"get"={"security"="is_granted('ROLE_USER')"}},
+ * itemOperations={
+ * "get"={
+ * "requirements"={"id"="\d+"},
+ * "security"="is_granted('ROLE_USER')"}},
  *     normalizationContext={"groups"={"user:read"}},
  *     denormalizationContext={"groups"={"user:write"}}
  * )
@@ -25,14 +30,15 @@ class Company implements UserInterface
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     *
+     * @Assert\Type("integer")
+     * @ApiProperty(identifier=true)
      * @Groups("user:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\NotBlank
      * @Groups({"user:read", "user:write"})
      */
     private $name;
@@ -45,7 +51,7 @@ class Company implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
+     * @Assert\NotBlank
      *  @Groups({"user:read", "user:write"})
      */
     private $username;
