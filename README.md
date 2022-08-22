@@ -1,3 +1,7 @@
+#BileMo API
+
+Septième projet dans le cadre de ma formation de développeur PHP Symfony chez OpenClassrooms
+
 Pour installer le projet il faudra :
 
 # 1 - CREATION DU FICHIER .ENV
