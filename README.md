@@ -1,6 +1,8 @@
-#BileMo API
+# BileMo API
 
 Septième projet dans le cadre de ma formation de développeur PHP Symfony chez OpenClassrooms
+
+Réalisation d'une API REST avec API Platform sous le framework Symfony
 
 Pour installer le projet il faudra :
 
